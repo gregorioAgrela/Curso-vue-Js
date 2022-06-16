@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Data</title>
+    </head>
+    <body>
+        <div id="app">
+            <!-- colores -->
+            <center>
+                <button @click="cambiarColor()">Colors</button>
+                <hr>
+                <div ref="cont">-----</div>
+                <div ref="amarillo">. </div>
+                <div ref="azul"> * * * * * * *</div>
+                <div ref="rojo">. </div>
+            </center>
+            <!--
+                Acceso a Componentes y Elementos
+                document.querySelector("$$$") ---Js 
+                $ref -- Vue.js
+            -->
+            <!-- CDN V2-->
+        </div>
+        <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+        <script>
+            const app = new Vue({
+                el:'#app',
+                data:{
+                    numero:0
+                },
+                methods:{
+                    cambiarColor(){
+                        this.$refs.amarillo.style.background = "yellow"
+                        this.$refs.azul.style.background= "blue"
+                        this.$refs.rojo.style.background="red"
+                        if (this.numero==0) {
+                            this.numero++
+                            return this.$refs.cont.style.background = "yellow"
+                        } else if (this.numero==1){
+                            this.numero++
+                            return this.$refs.cont.style.background = "blue"
+                        }else if (this.numero ==2){
+                            this.numero=0
+                            return this.$refs.cont.style.background='red'
+                        }
+                    }
+                }
+            })
+        </script>
+    </body>
+</html>

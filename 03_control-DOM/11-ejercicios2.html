@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Data</title>
+    </head>
+    <body>
+        <div id="app">
+            <li v-for='(framework, i) in frameworks'>
+                el framework {{framework}} fue creado por {{creador[i]}}
+            </li>
+            <hr>
+            <li v-for='(nombre,framework) in datos'>
+                El Framework {{framework}} fue creado por {{nombre}}
+            </li>   
+        </div>
+        <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+        <script>
+            const app=new Vue({
+                el:'#app',
+                data:{
+                    frameworks:['Angular','Vue','React','Ember'],
+                    creador:['misko heavery','Evan you','Jordan Walke','Yehuda Katz'],
+                    datos:{
+                        angular:'Misho Heavery',
+                        Vue:'Evan you',
+                        React: 'Jordan Walke',
+                        Ember:'Yehuda Katz',
+                    }
+                }
+            })
+        </script>
+    </body>
+</html>

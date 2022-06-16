@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="https://cdn.jsdelivr.net/accounting.js/0.3.2/accounting.js"></script>
+        <!-- <script src="https://cdnjs.cloundFlare.com/ajax/libs/moment.js/2.14.1/moment-with-locales.js"></script> -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.3/moment.min.js"></script>
+        <title>Ejercicio 03</title>
+    </head>
+    <body>
+        <div id="app">
+            <hr>
+                <center>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Modelo</th>
+                                <th>compania</th>
+                                <th>valor unidad</th>
+                                <th>fecha</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr v-for="data in stock">
+                                <td>{{data.modelo}}</td>
+                                <td>{{data.compania}}</td>
+                                <td>{{data.valor | valor }}</td>
+                                <td>{{data.fecha | fecha }}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </center>
+        </div>
+        <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+        <script>
+            Vue.filter('valor',function(data){
+               return accounting.formatMoney(data,"$",2,".",",")
+            })
+            Vue.filter('fecha',function(n){
+                return moment(n).format('MMMM Do YYYY, h:mm:ss a');
+            })
+            const app = new Vue({
+                el:'#app',
+                data:{
+                    stock:[
+                        {modelo: 'iPhone XR', compania:'Apple',valor:'457',fecha:'2018-09-12'},
+                        {modelo: 'iPhone 11', compania:'apple', valor:'556',fecha:'2019-08-10'},
+                        {modulo: 'Galaxy A10', compania:'Samsung',valor:'350',fecha:'2019-03-13'},
+                        {modulo: 'Galaxy A50',compania:'Samsung', Valor:'850',fecha:'2018-02-11'},
+                        {modulo: 'Galaxy A20',compania:'Samsung',valor:'750',fecha:'2019-08-22'}
+                    ]
+                }
+            })
+        </script>
+    </body>
+</html>

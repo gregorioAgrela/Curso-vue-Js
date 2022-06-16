@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue V3</title>
+</head>
+<body>
+    <div id="container">
+
+        tiempo ensendido :{{dias}}:{{hora}}:{{minuto}}:{{segundo}}
+        
+    </div>
+    <!-- CDN V3-->
+    <script src="https://unpkg.com/vue@next"></script>
+    <script>
+        const Count={
+            data(){
+                return{
+                    conunt:0,
+                    minuto:0,
+                    segundo:0,
+                    hora:0,
+                    dias:1,
+                }
+            },
+            mounted(){
+                setInterval(()=>{
+                    this.conunt++
+                    this.segundo=this.conunt;
+                if(this.segundo==60){
+                    this.conunt=0
+                    this.minuto++
+                    if(this.minuto==60){
+                        this.minuto=0;
+                        this.hora++
+                        if(this.horas==24){
+                            this.horas=0;
+                            this.dias++
+                        }
+                    }
+                }
+                },1)        
+            }
+        }
+        Vue.createApp(Count).mount('#container')
+    </script>
+</body>
+</html>

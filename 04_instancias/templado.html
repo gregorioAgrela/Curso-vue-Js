@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Data</title>
+        <div id="app">
+            <contador></contador>
+        </div>
+        <div id="otro">
+            <componente></componente>
+        </div>
+    </head>
+    <body>
+        <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+        <script>
+            Vue.component('contador',{
+                template:"<h1> solo texto html </h1>",
+                data(){
+                    return {
+                        number:0
+                    }
+                }
+            })
+            Vue.component('componente',{
+                template:"<p>pre datos</p>"
+            })
+            const dos = new Vue({
+                el:'#otro',
+                data:{
+                    titulo:'Go',
+                }
+            })
+            const uno =new Vue({
+                el:'#app',
+                data:{
+                    titulo:'Gowplay',
+                    nombre:'juan perez',
+                    temp:'Este es el componente 1'
+                }
+            })
+
+        </script>
+
+    </body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Multiples instancias </title>
+    </head>
+    <body>
+        <div id="app">
+            <center>
+                {{titulo}}
+            </center>
+            <input type="text" v-model="nombre">
+                {{nombre}}
+        </div>
+        <ht>
+        <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+        <script>
+            const uno=new Vue({
+                el:'#app',
+                data:{
+                    titulo:'GowPlay',
+                    nombre:'juan perez'
+                },
+                // beforeCreate = despues inicializacion instancia - antes componente cree
+                beforeCreate(){
+                    alert('Antes de crear componente '+ this.nombre)
+                },
+                //created =ejecuta cuando instancia,evento,propiedad etc
+                created(){
+                    alert('creado componente '+" " +this.nombre)
+                },
+                //beforeMount: se ejecuta justo antes añadir el Dom.
+                beforeMount(){
+                    alert('junto antes de añadir el DOM '+ this.nombre)
+                },
+                //mountedÑ se ejecuta es despues de añadirlo al DOM.
+                mounted(){
+                    alert('justo antes de anadir al DOM ', this.nombre)
+                },
+                //beforeUpdate:se ejecuta cuando el objecto data cambia, el DOM no 
+                beforeUpdate(){
+                    alert('objeto data cambia ' + this.nombre)
+                },
+                //update:se ejecuta despues objeto data cambie -DOM muestre
+                update(){
+                    alert('object data cambio en el DOM' + this.nombre)
+                }
+                //beforeDestroy:se ejecuta justo antes de eliminar la instancia.
+                
+                //destroyed:se ejecuta cuando la instancia, directivas etc se elimina 
+            })
+        </script>
+    </body>
+</html>

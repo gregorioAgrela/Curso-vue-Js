@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Control de eventos</title>
+    </head>
+    <body>
+        <div id="app">
+            <p> {{ contador}}</p>
+            <button v-on:mouseout=" contador +=1"> mouseout</button>
+            <button v-on:mouseover=" contador +=1 ">mouseover</button>
+            <button v-on:wheel= " contador +=1">wheel</button>
+        </div>
+        <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+        <script>
+            const app= new Vue({
+                el:'#app',
+                data:{
+                    contador:0
+                }
+            })
+        </script>
+    </body>
+</html>
